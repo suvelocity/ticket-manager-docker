@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:16-alpine3.11
 
 WORKDIR /app
 
@@ -14,9 +14,11 @@ RUN npm install --only=production
 
 RUN npm run build
 
-EXPOSE 4000
+EXPOSE 8000
 
 WORKDIR /app
+
+ENV MONGO_URI=""
 
 CMD ["npm","start"]
 
